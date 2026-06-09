@@ -98,3 +98,8 @@ Requires MariaDB running locally. See `docs/install_mariadb_with_docker.txt` for
 - **Server components by default**: Only add `"use client"` when state/effects are needed
 - **Service pattern**: Business logic in `src/lib/services/`, data access in `src/lib/repositories/`
 - **shadcn components**: UI primitives live in `src/components/ui/`, feature components in `src/components/`
+
+#####
+- แยก TypeScript Type ทุกอย่าง ออกไปไว้ที่ Folder services/types
+- Name Convention TypeScript (.ts) ให้ตั้งตามตัวอย่างคือ course-service.ts
+- ห้ามใช้คำสั่ง npx prisma db push
