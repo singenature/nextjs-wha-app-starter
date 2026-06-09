@@ -1,5 +1,5 @@
-import { Course, CourseApiResponse, CourseServiceResult } from './types/course.types';
-import { fetchCoursesFromApi } from '../repositories/course.repository';
+import { Course, CourseApiResponse, CourseServiceResult } from './types/course-types';
+import { fetchCoursesFromApi } from '../repositories/course-repository';
 
 export async function getAllCourses(): Promise<CourseServiceResult> {
   try {

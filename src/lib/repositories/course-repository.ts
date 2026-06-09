@@ -1,4 +1,4 @@
-import { CourseApiResponse } from '../services/types/course.types';
+import { CourseApiResponse } from '../services/types/course-types';
 
 const API_BASE_URL = 'https://api.codingthailand.com/api';
 

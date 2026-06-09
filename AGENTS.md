@@ -97,6 +97,7 @@ Requires MariaDB running locally. See `docs/install_mariadb_with_docker.txt` for
 - **Thai language**: UI text and metadata are in Thai (lang="th" in layout)
 - **Server components by default**: Only add `"use client"` when state/effects are needed
 - **Service pattern**: Business logic in `src/lib/services/`, data access in `src/lib/repositories/`
+- **File naming**: Use kebab-case for all files (e.g., `course-service.ts`, not `course.service.ts`)
 - **shadcn components**: UI primitives live in `src/components/ui/`, feature components in `src/components/`
 
 #####

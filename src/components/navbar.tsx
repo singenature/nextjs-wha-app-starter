@@ -16,7 +16,7 @@ const Navbar = async () => {
   });
 
   return (
-    <nav className="h-16 border-b bg-background">
+    <nav className="sticky top-0 z-50 h-16 border-b border-border bg-white shadow-[0_-2px_4px_0_rgba(0,31,62,0.08)]">
       <div className="mx-auto flex h-full max-w-(--breakpoint-xl) items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo />
 
@@ -24,20 +24,27 @@ const Navbar = async () => {
         <NavMenu className="hidden md:block" />
 
         <Link href="/cart">
-          <Badge className="p-2 text-md">
-            <ShoppingBasket /> <CountCartItem /> ชิ้น
+          <Badge className="gap-1.5 rounded-full bg-primary px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#0053cc]">
+            <ShoppingBasket className="size-4" /> <CountCartItem /> ชิ้น
           </Badge>
         </Link>
 
         <div className="flex items-center gap-3">
-          
+
           {
             !session && (
               <>
-                <Button asChild className="hidden sm:inline-flex" variant="outline">
+                <Button
+                  asChild
+                  className="hidden sm:inline-flex rounded border border-primary bg-transparent text-primary hover:bg-primary hover:text-white transition-colors"
+                  variant="outline"
+                >
                   <Link href="/login">เข้าสู่ระบบ</Link>
                 </Button>
-                <Button asChild>
+                <Button
+                  asChild
+                  className="rounded bg-primary text-white font-semibold hover:bg-[#0053cc] transition-colors"
+                >
                   <Link href="/signup">สมัครสมาชิก</Link>
                 </Button>
               </>
@@ -47,7 +54,7 @@ const Navbar = async () => {
           {
             session && (
               <>
-                <div className="flex items-center mr-4">
+                <div className="hidden sm:flex items-center mr-2 text-[#001f3e] font-medium">
                   สวัสดี, {session.user.name}
                 </div>
                 <div>

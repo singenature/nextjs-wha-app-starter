@@ -1,5 +1,5 @@
 import FeaturesCourse from "@/components/features-course";
-import { getAllCourses } from "@/lib/services/course.service";
+import { getAllCourses } from "@/lib/services/course-service";
 
 export default async function CoursePage() {
   const { courses, error } = await getAllCourses();
