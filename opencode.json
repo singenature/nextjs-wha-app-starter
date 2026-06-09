@@ -1,11 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "instructions": ["docs\typescript-guidelines.md"],
   "formatter": true,
   "lsp": true,
   "permission":
    {
     "bash": {
-      "git *": "ask",
+      "git commit *": "ask",
+      "git add *": "ask",
       "npm *": "allow",
       "rm *": "deny",
       "grep *": "allow"
