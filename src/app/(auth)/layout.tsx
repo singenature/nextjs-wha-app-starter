@@ -29,7 +29,7 @@ export default function AuthLayout({
       lang="th"
       className={cn(promptFont.className, "font-sans", roboto.variable, loraHeading.variable)}
     >
-      <body>
+      <body className="bg-[#f2f7ff]">
         {children}
       </body>
     </html>

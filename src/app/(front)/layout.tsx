@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const promptFont = Prompt({
   weight: ['400', '500', '700'],
@@ -24,9 +25,10 @@ export default function RootLayout({
     <html lang="th" className={`${promptFont.className} font-sans`}>
       <body>
         <Suspense fallback={<div className="h-16 border-b bg-background" />}>
-        <Navbar />
+          <Navbar />
         </Suspense>
-        {children}
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
