@@ -4,6 +4,7 @@ import { Prompt } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Toaster } from "sonner";
 
 const promptFont = Prompt({
   weight: ['400', '500', '700'],
@@ -29,6 +30,7 @@ export default function RootLayout({
         </Suspense>
         <main>{children}</main>
         <Footer />
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );
