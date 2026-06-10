@@ -87,8 +87,7 @@ export function DashboardClient() {
 
   // mount: fetch stats + orders concurrently
   useEffect(() => {
-    fetchStats();
-    fetchOrders();
+    Promise.all([fetchStats(), fetchOrders()]);
   }, [fetchStats, fetchOrders]);
 
   // period change: refetch revenue
@@ -99,8 +98,7 @@ export function DashboardClient() {
   // 30-second auto-refresh for stats + orders
   useEffect(() => {
     const interval = setInterval(() => {
-      fetchStats();
-      fetchOrders();
+      Promise.all([fetchStats(), fetchOrders()]);
     }, 30_000);
     return () => clearInterval(interval);
   }, [fetchStats, fetchOrders]);

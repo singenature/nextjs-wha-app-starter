@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import { Prompt, Roboto, Lora } from "next/font/google";
+import { Prompt, Lora } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "../globals.css";
 
-const loraHeading = Lora({subsets:['latin'],variable:'--font-heading'});
-
-const roboto = Roboto({subsets:['latin'],variable:'--font-sans'});
+const loraHeading = Lora({ subsets: ['latin'], variable: '--font-heading' });
 
 export const promptFont = Prompt({
   weight: ['400', '500', '700'],
   subsets: ['thai'],
-  display: 'swap'
+  display: 'swap',
 });
-
 
 export const metadata: Metadata = {
   title: "ระบบ ล็อกอิน",
@@ -27,7 +24,7 @@ export default function AuthLayout({
   return (
     <html
       lang="th"
-      className={cn(promptFont.className, "font-sans", roboto.variable, loraHeading.variable)}
+      className={cn(promptFont.className, loraHeading.variable)}
     >
       <body className="bg-[#f2f7ff]">
         {children}

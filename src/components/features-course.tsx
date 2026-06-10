@@ -24,12 +24,10 @@ const FeaturesCourse = ({ courses }: Props) => {
               <div className="relative aspect-4/5 w-full overflow-hidden bg-[#f2f4f5]">
                 <Image
                   alt={course.title}
-                  className="size-full object-cover"
-                  width={0}
-                  height={0}
+                  className="object-cover"
+                  fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   src={course.picture}
-                  loading="eager"
                 />
               </div>
               <div className="px-5 py-5">
