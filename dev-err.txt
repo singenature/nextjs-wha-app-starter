@@ -1,0 +1,404 @@
+[2m2026-06-10T04:48:28.685Z[0m [31mERROR[0m [1m[Better Auth]:[0m Failed to query fallback join for model user: {
+  where: [
+    {
+      operator: 'eq',
+      connector: 'AND',
+      field: 'id',
+      value: '4UZVcV3L13VaLkWNH3nh8zKiLuxar7uy',
+      mode: 'sensitive'
+    }
+  ],
+  limit: 1
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `db[model].findFirst()` invocation in
+D:\Next Gen Application Development with AI\Day1\nextjs-wha-app-starter\.next\dev\server\chunks\ssr\[root-of-the-server]__0nezu64._.js:7384:52
+
+  7381     map.set(key, getModelName(joinModel));
+  7382 }
+  7383 const selects = convertSelect(select, model, join);
+→ 7384 const result = await db[model].findFirst(
+The column `user.role` does not exist in the current database.
+    at async DashboardPage (src\app\(admin)\dashboard\page.tsx:7:19)
+   5 |
+   6 | export default async function DashboardPage() {
+>  7 |   const session = await auth.api.getSession({ headers: await headers() })
+     |                   ^
+   8 |   const user = session?.user as { role?: string } | undefined
+   9 |
+  10 |   if (!user || user.role !== "admin") { {
+  code: 'P2022',
+  meta: {
+    modelName: 'User',
+    driverAdapterError: Error [DriverAdapterError]: ColumnNotFound
+        at async DashboardPage (src\app\(admin)\dashboard\page.tsx:7:19)
+       5 |
+       6 | export default async function DashboardPage() {
+    >  7 |   const session = await auth.api.getSession({ headers: await headers() })
+         |                   ^
+       8 |   const user = session?.user as { role?: string } | undefined
+       9 |
+      10 |   if (!user || user.role !== "admin") { {
+      [cause]: [Object]
+    }
+  },
+  clientVersion: '7.8.0'
+}
+[2m2026-06-10T04:48:29.370Z[0m [31mERROR[0m [1m[Better Auth]:[0m INTERNAL_SERVER_ERROR Error [PrismaClientKnownRequestError]: 
+Invalid `db[model].findFirst()` invocation in
+D:\Next Gen Application Development with AI\Day1\nextjs-wha-app-starter\.next\dev\server\chunks\ssr\[root-of-the-server]__0nezu64._.js:7384:52
+
+  7381     map.set(key, getModelName(joinModel));
+  7382 }
+  7383 const selects = convertSelect(select, model, join);
+→ 7384 const result = await db[model].findFirst(
+The column `user.role` does not exist in the current database.
+    at async DashboardPage (src\app\(admin)\dashboard\page.tsx:7:19)
+   5 |
+   6 | export default async function DashboardPage() {
+>  7 |   const session = await auth.api.getSession({ headers: await headers() })
+     |                   ^
+   8 |   const user = session?.user as { role?: string } | undefined
+   9 |
+  10 |   if (!user || user.role !== "admin") { {
+  code: 'P2022',
+  meta: {
+    modelName: 'User',
+    driverAdapterError: Error [DriverAdapterError]: ColumnNotFound
+        at async DashboardPage (src\app\(admin)\dashboard\page.tsx:7:19)
+       5 |
+       6 | export default async function DashboardPage() {
+    >  7 |   const session = await auth.api.getSession({ headers: await headers() })
+         |                   ^
+       8 |   const user = session?.user as { role?: string } | undefined
+       9 |
+      10 |   if (!user || user.role !== "admin") { {
+      [cause]: [Object]
+    }
+  },
+  clientVersion: '7.8.0'
+}
+⨯ [Error [APIError]: Failed to get session] {
+  status: 'INTERNAL_SERVER_ERROR',
+  body: { message: 'Failed to get session', code: 'FAILED_TO_GET_SESSION' },
+  headers: {},
+  statusCode: 500,
+  digest: '3914836991'
+}
+about://React/Server/D:%5CNext%20Gen%20Application%20Development%20with%20AI%5CDay1%5Cnextjs-wha-app-starter%5C.next%5Cdev%5Cserver%5Cchunks%5Cssr%5C%5Broot-of-the-server%5D__0nezu64._.js?21: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+about://React/Server/D:%5CNext%20Gen%20Application%20Development%20with%20AI%5CDay1%5Cnextjs-wha-app-starter%5C.next%5Cdev%5Cserver%5Cchunks%5Cssr%5C%5Broot-of-the-server%5D__1gbpfa7._.js?13: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+Error: Route "/dashboard": Uncached data or `connection()` was accessed outside of `<Suspense>`. This delays the entire page from rendering, resulting in a slow user experience. Learn more: https://nextjs.org/docs/messages/blocking-route
+    at Promise.then (<anonymous>:1:21)
+    at Promise.catch (<anonymous>:1:22)
+    at internalHandler (about://React/Server/D:%5CNext%20Gen%20Application%20Development%20with%20AI%5CDay1%5Cnextjs-wha-app-starter%5C.next%5Cdev%5Cserver%5Cchunks%5Cssr%5C%5Broot-of-the-server%5D__0nezu64._.js?21:758:62)
+    at DashboardPage (about://React/Server/D:%5CNext%20Gen%20Application%20Development%20with%20AI%5CDay1%5Cnextjs-wha-app-starter%5C.next%5Cdev%5Cserver%5Cchunks%5Cssr%5C%5Broot-of-the-server%5D__1gbpfa7._.js?13:583:21)
+[browser] Error: Route "/dashboard": Uncached data or `connection()` was accessed outside of `<Suspense>`. This delays the entire page from rendering, resulting in a slow user experience. Learn more: https://nextjs.org/docs/messages/blocking-route
+    at Promise.then (<anonymous>:1:21)
+    at Promise.catch (<anonymous>:1:22)
+    at internalHandler (node_modules\better-call\src\endpoint.ts:607:58)
+    at DashboardPage (src\app\(admin)\dashboard\page.tsx:7:19)
+    at resolveErrorDev (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:1919:105)
+    at getOutlinedModel (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:1469:28)
+    at parseModelString (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:1584:50)
+    at reviveModel (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2522:66)
+    at reviveModel (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2525:61)
+    at reviveModel (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2604:78)
+    at parseModel (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2517:16)
+    at initializeModelChunk (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:1084:25)
+    at resolveModelChunk (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:986:43)
+    at processFullStringRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2473:126)
+    at processFullBinaryRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2393:9)
+    at processBinaryChunk (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2502:221)
+    at progress (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2689:13)
+  605 | 			});
+  606 | 		}
+> 607 | 		const response = await handler(internalContext as any).catch(async (e) => {
+      |                                                        ^
+  608 | 			if (isAPIError(e)) {
+  609 | 				const onAPIError = options.onAPIError;
+  610 | 				if (onAPIError) { (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:14245:33)
+[browser] Uncaught APIError: Failed to get session
+    at resolveErrorDev (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:1919:105)
+    at processFullStringRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2434:29)
+    at processFullBinaryRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2393:9)
+    at processBinaryChunk (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2502:221)
+    at progress (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2689:13)
+[2m2026-06-10T04:55:37.094Z[0m [31mERROR[0m [1m[Better Auth]:[0m Failed to query fallback join for model user: {
+  where: [
+    {
+      operator: 'eq',
+      connector: 'AND',
+      field: 'id',
+      value: '4UZVcV3L13VaLkWNH3nh8zKiLuxar7uy',
+      mode: 'sensitive'
+    }
+  ],
+  limit: 1
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `db[model].findFirst()` invocation in
+D:\Next Gen Application Development with AI\Day1\nextjs-wha-app-starter\.next\dev\server\chunks\ssr\[root-of-the-server]__14ifas3._.js:7937:52
+
+  7934     map.set(key, getModelName(joinModel));
+  7935 }
+  7936 const selects = convertSelect(select, model, join);
+→ 7937 const result = await db[model].findFirst(
+The column `user.role` does not exist in the current database.
+    at async Navbar (src\components\navbar.tsx:14:19)
+  12 |
+  13 | const Navbar = async () => {
+> 14 |   const session = await auth.api.getSession({
+     |                   ^
+  15 |     headers: await headers()
+  16 |   });
+  17 | {
+  code: 'P2022',
+  meta: {
+    modelName: 'User',
+    driverAdapterError: Error [DriverAdapterError]: ColumnNotFound
+        at async Navbar (src\components\navbar.tsx:14:19)
+      12 |
+      13 | const Navbar = async () => {
+    > 14 |   const session = await auth.api.getSession({
+         |                   ^
+      15 |     headers: await headers()
+      16 |   });
+      17 | {
+      [cause]: [Object]
+    }
+  },
+  clientVersion: '7.8.0'
+}
+[2m2026-06-10T04:55:37.494Z[0m [31mERROR[0m [1m[Better Auth]:[0m INTERNAL_SERVER_ERROR Error [PrismaClientKnownRequestError]: 
+Invalid `db[model].findFirst()` invocation in
+D:\Next Gen Application Development with AI\Day1\nextjs-wha-app-starter\.next\dev\server\chunks\ssr\[root-of-the-server]__14ifas3._.js:7937:52
+
+  7934     map.set(key, getModelName(joinModel));
+  7935 }
+  7936 const selects = convertSelect(select, model, join);
+→ 7937 const result = await db[model].findFirst(
+The column `user.role` does not exist in the current database.
+    at async Navbar (src\components\navbar.tsx:14:19)
+  12 |
+  13 | const Navbar = async () => {
+> 14 |   const session = await auth.api.getSession({
+     |                   ^
+  15 |     headers: await headers()
+  16 |   });
+  17 | {
+  code: 'P2022',
+  meta: {
+    modelName: 'User',
+    driverAdapterError: Error [DriverAdapterError]: ColumnNotFound
+        at async Navbar (src\components\navbar.tsx:14:19)
+      12 |
+      13 | const Navbar = async () => {
+    > 14 |   const session = await auth.api.getSession({
+         |                   ^
+      15 |     headers: await headers()
+      16 |   });
+      17 | {
+      [cause]: [Object]
+    }
+  },
+  clientVersion: '7.8.0'
+}
+⨯ [Error [APIError]: Failed to get session] {
+  status: 'INTERNAL_SERVER_ERROR',
+  body: { message: 'Failed to get session', code: 'FAILED_TO_GET_SESSION' },
+  headers: {},
+  statusCode: 500,
+  digest: '3914836991'
+}
+[browser] Uncaught APIError: Failed to get session
+    at resolveErrorDev (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:1919:150)
+    at processFullStringRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2434:29)
+    at processFullBinaryRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2393:9)
+    at processBinaryChunk (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2502:221)
+    at progress (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2689:13)
+[2m2026-06-10T05:55:27.532Z[0m [31mERROR[0m [1m[Better Auth]:[0m Failed to query fallback join for model user: {
+  where: [
+    {
+      operator: 'eq',
+      connector: 'AND',
+      field: 'id',
+      value: '4UZVcV3L13VaLkWNH3nh8zKiLuxar7uy',
+      mode: 'sensitive'
+    }
+  ],
+  limit: 1
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `db[model].findFirst()` invocation in
+D:\Next Gen Application Development with AI\Day1\nextjs-wha-app-starter\.next\dev\server\chunks\ssr\[root-of-the-server]__14ifas3._.js:7937:52
+
+  7934     map.set(key, getModelName(joinModel));
+  7935 }
+  7936 const selects = convertSelect(select, model, join);
+→ 7937 const result = await db[model].findFirst(
+The column `user.role` does not exist in the current database.
+    at async Navbar (src\components\navbar.tsx:14:19)
+  12 |
+  13 | const Navbar = async () => {
+> 14 |   const session = await auth.api.getSession({
+     |                   ^
+  15 |     headers: await headers()
+  16 |   });
+  17 | {
+  code: 'P2022',
+  meta: {
+    modelName: 'User',
+    driverAdapterError: Error [DriverAdapterError]: ColumnNotFound
+        at async Navbar (src\components\navbar.tsx:14:19)
+      12 |
+      13 | const Navbar = async () => {
+    > 14 |   const session = await auth.api.getSession({
+         |                   ^
+      15 |     headers: await headers()
+      16 |   });
+      17 | {
+      [cause]: [Object]
+    }
+  },
+  clientVersion: '7.8.0'
+}
+[2m2026-06-10T05:55:27.894Z[0m [31mERROR[0m [1m[Better Auth]:[0m INTERNAL_SERVER_ERROR Error [PrismaClientKnownRequestError]: 
+Invalid `db[model].findFirst()` invocation in
+D:\Next Gen Application Development with AI\Day1\nextjs-wha-app-starter\.next\dev\server\chunks\ssr\[root-of-the-server]__14ifas3._.js:7937:52
+
+  7934     map.set(key, getModelName(joinModel));
+  7935 }
+  7936 const selects = convertSelect(select, model, join);
+→ 7937 const result = await db[model].findFirst(
+The column `user.role` does not exist in the current database.
+    at async Navbar (src\components\navbar.tsx:14:19)
+  12 |
+  13 | const Navbar = async () => {
+> 14 |   const session = await auth.api.getSession({
+     |                   ^
+  15 |     headers: await headers()
+  16 |   });
+  17 | {
+  code: 'P2022',
+  meta: {
+    modelName: 'User',
+    driverAdapterError: Error [DriverAdapterError]: ColumnNotFound
+        at async Navbar (src\components\navbar.tsx:14:19)
+      12 |
+      13 | const Navbar = async () => {
+    > 14 |   const session = await auth.api.getSession({
+         |                   ^
+      15 |     headers: await headers()
+      16 |   });
+      17 | {
+      [cause]: [Object]
+    }
+  },
+  clientVersion: '7.8.0'
+}
+⨯ [Error [APIError]: Failed to get session] {
+  status: 'INTERNAL_SERVER_ERROR',
+  body: { message: 'Failed to get session', code: 'FAILED_TO_GET_SESSION' },
+  headers: {},
+  statusCode: 500,
+  digest: '3914836991'
+}
+[browser] Uncaught APIError: Failed to get session
+    at resolveErrorDev (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:1919:105)
+    at processFullStringRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2434:29)
+    at processFullBinaryRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2393:9)
+    at processBinaryChunk (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2502:221)
+    at progress (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2689:13)
+[2m2026-06-10T05:55:55.012Z[0m [31mERROR[0m [1m[Better Auth]:[0m Failed to query fallback join for model user: {
+  where: [
+    {
+      operator: 'eq',
+      connector: 'AND',
+      field: 'id',
+      value: '4UZVcV3L13VaLkWNH3nh8zKiLuxar7uy',
+      mode: 'sensitive'
+    }
+  ],
+  limit: 1
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `db[model].findFirst()` invocation in
+D:\Next Gen Application Development with AI\Day1\nextjs-wha-app-starter\.next\dev\server\chunks\ssr\[root-of-the-server]__14ifas3._.js:7937:52
+
+  7934     map.set(key, getModelName(joinModel));
+  7935 }
+  7936 const selects = convertSelect(select, model, join);
+→ 7937 const result = await db[model].findFirst(
+The column `user.role` does not exist in the current database.
+    at async Navbar (src\components\navbar.tsx:14:19)
+  12 |
+  13 | const Navbar = async () => {
+> 14 |   const session = await auth.api.getSession({
+     |                   ^
+  15 |     headers: await headers()
+  16 |   });
+  17 | {
+  code: 'P2022',
+  meta: {
+    modelName: 'User',
+    driverAdapterError: Error [DriverAdapterError]: ColumnNotFound
+        at async Navbar (src\components\navbar.tsx:14:19)
+      12 |
+      13 | const Navbar = async () => {
+    > 14 |   const session = await auth.api.getSession({
+         |                   ^
+      15 |     headers: await headers()
+      16 |   });
+      17 | {
+      [cause]: [Object]
+    }
+  },
+  clientVersion: '7.8.0'
+}
+[2m2026-06-10T05:55:55.407Z[0m [31mERROR[0m [1m[Better Auth]:[0m INTERNAL_SERVER_ERROR Error [PrismaClientKnownRequestError]: 
+Invalid `db[model].findFirst()` invocation in
+D:\Next Gen Application Development with AI\Day1\nextjs-wha-app-starter\.next\dev\server\chunks\ssr\[root-of-the-server]__14ifas3._.js:7937:52
+
+  7934     map.set(key, getModelName(joinModel));
+  7935 }
+  7936 const selects = convertSelect(select, model, join);
+→ 7937 const result = await db[model].findFirst(
+The column `user.role` does not exist in the current database.
+    at async Navbar (src\components\navbar.tsx:14:19)
+  12 |
+  13 | const Navbar = async () => {
+> 14 |   const session = await auth.api.getSession({
+     |                   ^
+  15 |     headers: await headers()
+  16 |   });
+  17 | {
+  code: 'P2022',
+  meta: {
+    modelName: 'User',
+    driverAdapterError: Error [DriverAdapterError]: ColumnNotFound
+        at async Navbar (src\components\navbar.tsx:14:19)
+      12 |
+      13 | const Navbar = async () => {
+    > 14 |   const session = await auth.api.getSession({
+         |                   ^
+      15 |     headers: await headers()
+      16 |   });
+      17 | {
+      [cause]: [Object]
+    }
+  },
+  clientVersion: '7.8.0'
+}
+⨯ [Error [APIError]: Failed to get session] {
+  status: 'INTERNAL_SERVER_ERROR',
+  body: { message: 'Failed to get session', code: 'FAILED_TO_GET_SESSION' },
+  headers: {},
+  statusCode: 500,
+  digest: '3914836991'
+}
+[browser] Uncaught APIError: Failed to get session
+    at resolveErrorDev (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:1919:105)
+    at processFullStringRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2434:29)
+    at processFullBinaryRow (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2393:9)
+    at processBinaryChunk (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2502:221)
+    at progress (file://D:/Next Gen Application Development with AI/Day1/nextjs-wha-app-starter/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js:2689:13)

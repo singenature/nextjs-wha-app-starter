@@ -1,0 +1,28 @@
+
+> nextjs-wha-app-starter@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.7 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.1.111.86:3000
+- Environments: .env
+✓ Ready in 1677ms
+- Cache Components enabled
+
+○ Compiling /dashboard ...
+ GET /dashboard 500 in 14.4s (next.js: 11.4s, application-code: 3.0s)
+○ Compiling /_not-found/page ...
+ GET /dashboard 404 in 5.0s (next.js: 4.1s, application-code: 837ms)
+ GET /dashboard 404 in 5.6s (next.js: 4.2s, application-code: 1318ms)
+ GET /dashboard 404 in 905ms (next.js: 40ms, application-code: 864ms)
+ GET /dashboard 404 in 457ms (next.js: 105ms, application-code: 353ms)
+ GET /dashboard 404 in 457ms (next.js: 127ms, application-code: 329ms)
+ GET /dashboard 404 in 457ms (next.js: 146ms, application-code: 311ms)
+ GET /dashboard 404 in 1576ms (next.js: 206ms, application-code: 1370ms)
+ GET /dashboard 404 in 387ms (next.js: 15ms, application-code: 373ms)
+○ Compiling / ...
+ GET / 200 in 6.9s (next.js: 3.7s, application-code: 3.2s)
+✓ Compiled in 394ms
+ GET / 200 in 4.2s (next.js: 1071ms, application-code: 3.1s)
+ GET / 200 in 1088ms (next.js: 16ms, application-code: 1072ms)
+[?25h
