@@ -28,7 +28,7 @@
       "grep *": "allow"
     },
     "edit": {
-      "*": "deny",
+      "*": "allow",
       "packages/web/src/content/docs/*.mdx": "allow"
     }
   }
