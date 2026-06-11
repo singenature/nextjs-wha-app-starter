@@ -1,10 +1,11 @@
+import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { DashboardClient } from "./dashboard-client";
 
-export default async function DashboardPage() {
+async function DashboardContent() {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -23,4 +24,12 @@ export default async function DashboardPage() {
   }
 
   return <DashboardClient />;
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense>
+      <DashboardContent />
+    </Suspense>
+  );
 }

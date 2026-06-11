@@ -4,9 +4,8 @@ import { contactSchema } from "@/lib/validations/contact"
 
 type ApiResponse<T> = { success: true; data: T } | { success: false; error: string }
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(req: NextRequest): Promise<NextResponse<ApiResponse<{ message: string }>>> {
+  const resend = new Resend(process.env.RESEND_API_KEY)
   const body: unknown = await req.json()
 
   const parsed = contactSchema.safeParse(body)
