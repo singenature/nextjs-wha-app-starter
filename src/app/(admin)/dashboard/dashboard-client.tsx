@@ -42,8 +42,10 @@ export function DashboardClient() {
   const [ordersLoading, setOrdersLoading] = useState(true);
   const [ordersError, setOrdersError] = useState<string | null>(null);
 
+  // หมายเหตุ: ไม่ตั้ง loading=true ตอนเริ่ม fetch (เพื่อเลี่ยง setState
+  // แบบ synchronous ใน effect — react-hooks/set-state-in-effect)
+  // skeleton แสดงจาก initial state ตอน mount, ส่วน refetch เป็น background
   const fetchStats = useCallback(async () => {
-    setStatsLoading(true);
     try {
       const res = await fetch("/api/admin/stats");
       if (!res.ok) throw new Error("โหลดข้อมูลสถิติไม่สำเร็จ");
@@ -57,7 +59,6 @@ export function DashboardClient() {
   }, []);
 
   const fetchOrders = useCallback(async () => {
-    setOrdersLoading(true);
     try {
       const res = await fetch("/api/admin/orders?limit=5");
       if (!res.ok) throw new Error("โหลดข้อมูลคำสั่งซื้อไม่สำเร็จ");
@@ -72,7 +73,6 @@ export function DashboardClient() {
   }, []);
 
   const fetchRevenue = useCallback(async (p: Period) => {
-    setRevenueLoading(true);
     try {
       const res = await fetch(`/api/admin/revenue?period=${p}`);
       if (!res.ok) throw new Error("โหลดข้อมูลรายได้ไม่สำเร็จ");
@@ -87,12 +87,18 @@ export function DashboardClient() {
 
   // mount: fetch stats + orders concurrently
   useEffect(() => {
-    Promise.all([fetchStats(), fetchOrders()]);
+    async function load() {
+      await Promise.all([fetchStats(), fetchOrders()]);
+    }
+    load();
   }, [fetchStats, fetchOrders]);
 
   // period change: refetch revenue
   useEffect(() => {
-    fetchRevenue(period);
+    async function load() {
+      await fetchRevenue(period);
+    }
+    load();
   }, [period, fetchRevenue]);
 
   // 30-second auto-refresh for stats + orders
