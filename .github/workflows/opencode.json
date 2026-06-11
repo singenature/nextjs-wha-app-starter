@@ -1,0 +1,100 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "deepseek": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "DeepSeek",
+      "options": {
+        "baseURL": "https://api.deepseek.com",
+        "apiKey": "{env:DEEPSEEK_API_KEY}"
+      },
+      "models": {
+        "deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro"
+        },
+        "deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash"
+        }
+      }
+    }
+  },
+  "agent": {
+    "ai": {
+      "description": "Primary coding agent for planning, implementation, refactoring, debugging, and project-level development tasks.",
+      "mode": "primary",
+      "model": "deepseek/deepseek-v4-pro",
+      "temperature": 0.2,
+      "steps": 50,
+      "prompt": "You are the primary software development agent. Work carefully, inspect the existing code before changing it, prefer small safe changes, explain important trade-offs, and validate work with relevant commands when available. For code review or fast investigation, delegate to the review-flash subagent when useful.",
+      "permission": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "lsp": "allow",
+        "edit": "ask",
+        "webfetch": "ask",
+        "websearch": "ask",
+        "skill": "allow",
+        "external_directory": "deny",
+        "todowrite": "allow",
+        "task": {
+          "*": "deny",
+          "review-flash": "allow"
+        },
+        "bash": {
+          "*": "ask",
+          "pwd": "allow",
+          "ls *": "allow",
+          "cat *": "allow",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "npm test*": "ask",
+          "npm run *": "ask",
+          "pnpm test*": "ask",
+          "pnpm run *": "ask",
+          "bun test*": "ask",
+          "bun run *": "ask",
+          "docker *": "ask",
+          "git push*": "ask",
+          "rm *": "ask",
+          "npx prisma db push*": "deny",
+          "pnpm prisma db push*": "deny",
+          "bunx prisma db push*": "deny",
+          "prisma db push*": "deny"
+        }
+      }
+    },
+    "review-flash": {
+      "description": "Fast read-only subagent for code review, bug finding, security checks, and quick codebase investigation.",
+      "mode": "subagent",
+      "model": "deepseek/deepseek-v4-flash",
+      "temperature": 0.1,
+      "steps": 20,
+      "prompt": "You are a fast read-only code review subagent. Focus on correctness, security, maintainability, performance, edge cases, and risky changes. Do not edit files. Return concise findings with file paths, evidence, and suggested fixes.",
+      "permission": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "lsp": "allow",
+        "edit": "deny",
+        "webfetch": "ask",
+        "websearch": "ask",
+        "external_directory": "deny",
+        "todowrite": "deny",
+        "bash": {
+          "*": "ask",
+          "pwd": "allow",
+          "ls *": "allow",
+          "cat *": "allow",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "grep *": "allow"
+        }
+      }
+    }
+  }
+}
